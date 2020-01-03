@@ -57,7 +57,7 @@ RESULT_DIR = './results/indexnet_matting'
 if not os.path.exists(RESULT_DIR):
     os.makedirs(RESULT_DIR)
 
-device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu", map_location=torch.device('cpu'))
 
 
 # instantiate network
