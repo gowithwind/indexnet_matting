@@ -57,7 +57,7 @@ RESULT_DIR = './results/indexnet_matting'
 if not os.path.exists(RESULT_DIR):
     os.makedirs(RESULT_DIR)
 
-device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu", map_location=torch.device('cpu'))
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 
 # instantiate network
@@ -78,7 +78,7 @@ net = nn.DataParallel(net)
 net.to(device)
 
 try:
-    checkpoint = torch.load(RESTORE_FROM)
+    checkpoint = torch.load(RESTORE_FROM, map_location=torch.device('cpu'))
     pretrained_dict = checkpoint['state_dict']
 except:
     raise Exception('Please download the pretrained model!')
