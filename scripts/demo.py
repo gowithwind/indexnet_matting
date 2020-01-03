@@ -106,8 +106,8 @@ def inference(image_path, trimap_path):
         Image.fromarray(alpha.astype(np.uint8)).save(os.path.join(RESULT_DIR, image_name))
         # Image.fromarray(alpha.astype(np.uint8)).show()
 
-        running_frame_rate = 1 * float(1 / (end - start)) # batch_size = 1
-        print('framerate: {0:.2f}Hz'.format(running_frame_rate))
+        running_frame_rate = end - start # batch_size = 1
+        print('cost: {}ms'.format(running_frame_rate))
 
 
 if __name__ == "__main__":
