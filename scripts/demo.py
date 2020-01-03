@@ -42,7 +42,7 @@ net = hlmobilenetv2(
     )
 net = nn.DataParallel(net)
 try:
-    checkpoint = torch.load(RESTORE_FROM)
+    checkpoint = torch.load(RESTORE_FROM, map_location=torch.device('cpu'))
     pretrained_dict = checkpoint['state_dict']
 except:
     raise Exception('Please download the pretrained model!')
