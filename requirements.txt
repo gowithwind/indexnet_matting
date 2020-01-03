@@ -4,4 +4,4 @@ numpy
 pillow
 matplotlib
 scipy
-skimage
+scikit-image
